@@ -1,7 +1,7 @@
 var http = require('http');
-    fs = require('fs');
-    ejs = require('ejs');
-    qs = require('querystring');
+var fs = require('fs');
+var ejs = require('ejs');
+var qs = require('querystring');
 var settings = require('./settings');
 var server = http.createServer();
 var template = fs.readFileSync(__dirname + '/public_html/bbs.ejs', 'utf-8');
