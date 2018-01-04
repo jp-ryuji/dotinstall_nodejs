@@ -19,7 +19,19 @@ const insertUsers = function(db, callback) {
     { name: "bar", score: 80 },
     { name: "baz", score: 60 }
   ], function(err, result) {
-    console.dir(result);
+    // console.dir(result);
+    // collection.find({ name: 'foo' }).toArray(function(err, items) {
+    //   console.log(items);
+    // })
+
+    // stream should be used in case of handling lots of data.
+    var stream = collection.find().stream();
+    stream.on("data", function(item) {
+      console.log(item);
+    });
+    stream.on("end", function() {
+      console.log("finished");
+    })
     callback(result);
   });
 }
